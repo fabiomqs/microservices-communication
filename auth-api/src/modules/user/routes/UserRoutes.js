@@ -5,7 +5,7 @@ import UserController from "../controller/UserController.js";
 
 const router = new Router();
 
-//router.post("/api/user/auth", UserController.getAccessToken);
+router.post("/api/user/auth", UserController.getAccessToken);
 
 //router.use(checkToken);
 
