@@ -1,8 +1,10 @@
 package com.github.fabiomqs.productapi.modules.product.controller;
 
 import com.github.fabiomqs.productapi.config.exception.SuccessResponse;
+import com.github.fabiomqs.productapi.modules.product.dto.ProductCheckStockRequest;
 import com.github.fabiomqs.productapi.modules.product.dto.ProductRequest;
 import com.github.fabiomqs.productapi.modules.product.dto.ProductResponse;
+import com.github.fabiomqs.productapi.modules.product.dto.ProductSalesResponse;
 import com.github.fabiomqs.productapi.modules.product.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,13 +61,13 @@ public class ProductController {
         return productService.delete(id);
     }
 
-//    @PostMapping("check-stock")
-//    public SuccessResponse checkProductsStock(@RequestBody ProductCheckStockRequest request) {
-//        return productService.checkProductsStock(request);
-//    }
-//
-//    @GetMapping("{id}/sales")
-//    public ProductSalesResponse findProductSales(@PathVariable Integer id) {
-//        return productService.findProductSales(id);
-//    }
+    @PostMapping("check-stock")
+    public SuccessResponse checkProductsStock(@RequestBody ProductCheckStockRequest request) {
+        return productService.checkProductsStock(request);
+    }
+
+    @GetMapping("{id}/sales")
+    public ProductSalesResponse findProductSales(@PathVariable Integer id) {
+        return productService.findProductSales(id);
+    }
 }
