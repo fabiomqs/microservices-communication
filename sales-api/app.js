@@ -1,4 +1,5 @@
 import express from "express";
+//import checkToken from "./src/config/auth/checkToken.js";
 
 import { connectMongoDb } from "./src/config/db/mongoDbConfig.js";
 import { createInitialData } from "./src/config/db/initialData.js";
@@ -9,6 +10,8 @@ const PORT = env.PORT || 8092;
 
 connectMongoDb();
 createInitialData();
+
+//app.use(checkToken);
 
 app.get("/api/status", (req, res) => {
     return res.status(200).json({
