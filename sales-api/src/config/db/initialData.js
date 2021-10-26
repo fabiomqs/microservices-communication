@@ -2,8 +2,17 @@ import Order from "../../modules/sales/model/Order.js";
 import { v4 as uuidv4 } from "uuid";
 
 export async function createInitialData() {
+
     try {
         await Order.collection.drop();
+    } catch (err) {
+        if (err.message !== 'ns not found') {
+            throw err;
+        } else {
+            console.info('collection não existe');
+        }
+    }
+    try {
         await Order.create({
             products: [
                 {
