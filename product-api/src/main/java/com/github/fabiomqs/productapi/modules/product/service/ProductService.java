@@ -212,7 +212,8 @@ public class ProductService {
                 });
         if (!isEmpty(productsForUpdate)) {
             productRepository.saveAll(productsForUpdate);
-            var approvedMessage = new SalesConfirmationDTO(product.getSalesId(), SalesStatus.APPROVED, product.getTransactionid());
+            var approvedMessage = new SalesConfirmationDTO(product.getSalesId(),
+                    SalesStatus.APPROVED, product.getTransactionid());
             salesConfirmationSender.sendSalesConfirmationMessage(approvedMessage);
         }
     }
